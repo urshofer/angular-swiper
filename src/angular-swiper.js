@@ -47,7 +47,8 @@
                 slideCls: '@',
                 direction: '@',
                 swiper: '=',
-                overrideParameters: '='
+                overrideParameters: '=',
+                breakpoints: '='
             },
             controller: function($scope, $element, $timeout) {
                 var uuid = createUUID();
@@ -95,6 +96,12 @@
 
                 if ($scope.overrideParameters) {
                     params = angular.extend({}, params, $scope.overrideParameters);
+                }
+                
+                if (!angular.isUndefined($scope.breakpoints) && typeof $scope.breakpoints === 'object') {
+                    params = angular.extend({}, params, {
+                        breakpoints: $scope.breakpoints
+                    });
                 }
 
                 $timeout(function() {
