@@ -98,7 +98,7 @@
                     params = angular.extend({}, params, $scope.overrideParameters);
                 }
                 
-                if (!angular.isUndefined($scope.breakpoints) && typeof $scope.breakpoints === 'string') {
+                if (!angular.isUndefined($scope.breakpoints) && typeof $scope.breakpoints === 'object') {
                     params = angular.extend({}, params, {
                         breakpoints: $scope.breakpoints
                     });
